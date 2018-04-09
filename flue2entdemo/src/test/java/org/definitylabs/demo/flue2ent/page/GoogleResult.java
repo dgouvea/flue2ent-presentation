@@ -1,8 +1,8 @@
 package org.definitylabs.demo.flue2ent.page;
 
 import org.definitylabs.flue2ent.element.FindElementBy;
+import org.definitylabs.flue2ent.element.WebElementWrapper;
 import org.definitylabs.flue2ent.element.simple.SimpleWebElementDecorator;
-import org.openqa.selenium.By;
 
 public interface GoogleResult extends SimpleWebElementDecorator {
 
@@ -12,8 +12,11 @@ public interface GoogleResult extends SimpleWebElementDecorator {
     @FindElementBy(css = "h3 a", andGetAttribute = "href")
     String url();
 
+    @FindElementBy(css = "h3 a")
+    WebElementWrapper link();
+
     default void click() {
-        webElement().findElement(By.cssSelector("h3 a")).click();
+        link().click();
     }
 
     default boolean isOrganic() {

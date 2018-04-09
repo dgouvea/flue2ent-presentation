@@ -22,4 +22,7 @@ public interface GooglePage {
     @FindElementBy(id = "navcnt")
     GooglePagination pagination();
 
+    @FindElementBy(id = "cnsh")
+    GooglePrivacyReminderBar privacyReminderBar();
+
 }
